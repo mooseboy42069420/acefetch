@@ -1,5 +1,6 @@
 """Build M3U file from AceStream API."""
 
+import re
 import csv
 import argparse
 from dataclasses import dataclass
@@ -12,6 +13,8 @@ import requests
 REQUESTS_TIMEOUT = 10
 API_URL = "https://api.acestream.me/all?api_version=1&api_key=test_api_key"
 LOGOS_PATH = Path("channel_logos.xml")
+
+REMOVE_COUNTRY_CODE_REGEX = re.compile(r"\s*\[\w{2}\]\s*$")
 
 
 @dataclass
@@ -50,6 +53,11 @@ def get_logos() -> dict:
 
 
 def find_best_match(name, logos) -> str:
+    """Find the best matching logo for a given channel name."""
+    # Remove any country code from the name, indicated by a two-letter suffix between square brackets
+    name = REMOVE_COUNTRY_CODE_REGEX.sub("", name.strip())
+
+    # Use fuzzy matching to find the best match
     match = process.extractOne(
         name, logos.keys(), scorer=fuzz.token_sort_ratio, score_cutoff=80
     )
@@ -62,17 +70,22 @@ def find_best_match(name, logos) -> str:
     return ""
 
 
-def do_name_replace(name: str, replacements_csv: Path) -> str:
-    """Replace names based on a CSV file."""
-    name = name.strip()
-
+def get_name_replacements(replacements_csv: Path) -> dict[str, str]:
+    """Get name replacements from a CSV file."""
     if not replacements_csv.exists():
         print(f"Replacements file {replacements_csv} does not exist!")
-        return name
+        return {}
 
     with replacements_csv.open("r", encoding="utf-8") as csvfile:
         reader = csv.reader(csvfile)
         replacements = {row[0]: row[1] for row in reader if len(row) == 2}
+
+    return replacements
+
+
+def do_name_replace(name: str, replacements: dict[str, str]) -> str:
+    """Replace names based on a CSV file."""
+    name = name.strip()
 
     new_name = name
     for old, new in replacements.items():
@@ -146,6 +159,8 @@ def main() -> None:
 
     logos = get_logos()
 
+    name_replacements = get_name_replacements(Path(args.name_replacements))
+
     try:
         response = requests.get(API_URL, timeout=REQUESTS_TIMEOUT)
         response.raise_for_status()
@@ -163,7 +178,7 @@ def main() -> None:
 
             for item in data:
                 name = item.get("name", "Unknown")
-                name = do_name_replace(name, Path(args.name_replacements))
+                name = do_name_replace(name, name_replacements)
 
                 # If a filter is specified, check if the channel name matches
                 if name_filter and not any(code in name for code in name_filter):

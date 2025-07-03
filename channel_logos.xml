@@ -1972,6 +1972,9 @@
         <channel name="ESPN 2">
             <logo_url> https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/ESPN2.png</logo_url>
         </channel>
+        <channel name="ESPN2">
+            <logo_url> https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/ESPN2.png</logo_url>
+        </channel>
         <channel name="ESPNU">
             <logo_url> https://tse2.mm.bing.net/th?id=OIP.aGYAUHwBq_g1BudSXwVprAHaFj&amp;pid=Api&amp;P=0&amp;w=300&amp;h=300</logo_url>
         </channel>
