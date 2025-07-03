@@ -117,9 +117,9 @@ def create_playlists(playlist_name: str, list_of_channels: list[Channel]) -> Non
     output_directory.mkdir(exist_ok=True)
 
     uri_schemes = {
-        "local": "http://127.0.0.1:6878/ace/manifest.m3u8?content_id=",
-        "ace": "acestream://",
-        "horus": "plugin://script.module.horus?action=play&id=",
+        "local": "http://127.0.0.1:6878/ace/manifest.m3u8?infohash=",
+        # "ace": "acestream://",
+        # "horus": "plugin://script.module.horus?action=play&id=",
     }
 
     for uri_scheme, prefix in uri_schemes.items():
