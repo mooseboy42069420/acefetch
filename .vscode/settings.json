@@ -1,0 +1,18 @@
+{
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "xml.format.xsiSchemaLocationSplit": "onElement",
+  "xml.format.splitAttributes": "alignWithFirstAttr",
+  "xml.format.preservedNewlines": 0,
+  "xml.format.emptyElements": "collapse",
+  "xml.format.enforceQuoteStyle": "preferred",
+  "xml.format.preserveAttributeLineBreaks": false,
+  "xml.format.joinContentLines": true,
+  "xml.format.splitAttributesIndentSize": 1,
+  "xml.format.closingBracketNewLine": true,
+  "xml.format.maxLineWidth": 0
+}
