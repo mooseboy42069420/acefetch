@@ -1,0 +1,31 @@
+#EXTM3U
+#EXTINF:-1 tvg-logo="https://tse2.mm.bing.net/th?id=OIP.aGYAUHwBq_g1BudSXwVprAHaFj&pid=Api&P=0&w=300&h=300" group-title="sport",ESPN [US]
+plugin://script.module.horus?action=play&id=0dca83a7cc9184893ff96ee2355874342fc8fd45
+#EXTINF:-1 tvg-logo="https://tse2.mm.bing.net/th?id=OIP.MiekxPfGMLvOFb4LBwtERwHaD6&pid=Api&P=0&w=300&h=300" group-title="sport",ESPN2 [US]
+plugin://script.module.horus?action=play&id=437692bc0dedcf1c27c2ab2c1c7e58b0806244fe
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Fox_Sports_1_logo.svg/1280px-Fox_Sports_1_logo.svg.png" group-title="sport",Fox Sports 1 [US]
+plugin://script.module.horus?action=play&id=df23d9ca9275b354e23156d59b8bc1122441fa47
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Fox_sports_2_logo.svg/2560px-Fox_sports_2_logo.svg.png" group-title="sport",Fox Sports 2 [US]
+plugin://script.module.horus?action=play&id=e765303108614af0f9a42da7b45a147195982796
+#EXTINF:-1 tvg-logo="https://seeklogo.com/images/N/nba-tv-logo-9865A907F8-seeklogo.com.png" group-title="sport",NBA TV [US]
+plugin://script.module.horus?action=play&id=42832fbf9a1d3bdcca043e09951d6769fbbe04e7
+#EXTINF:-1 tvg-logo="https://tse2.mm.bing.net/th?id=OIP.rDoHt5lZ2TPcYF8tJv5nkAAAAA&pid=Api&P=0&w=300&h=300" group-title="sport",Premier Sports 1 [IE]
+plugin://script.module.horus?action=play&id=13ddaf59c0f2d760fd3775acc254e13825206eac
+#EXTINF:-1 tvg-logo="https://tse4.mm.bing.net/th?id=OIP.Bm0cYpQ7scnLtaNiE8iosAHaBB&pid=Api&P=0&w=300&h=300" group-title="sport",Sky Sports Arena [UK]
+plugin://script.module.horus?action=play&id=37796ca47026bc190c7dc26827c0dfb6b61d137b
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/b/b7/Sky_Sports_logo_2020.svg" group-title="sport",Sky Sports Cricket [UK]
+plugin://script.module.horus?action=play&id=610eefafd6602c094e8e89c249a11d635cb6fe29
+#EXTINF:-1 tvg-logo="https://tse2.mm.bing.net/th?id=OIP.hB7fIlRXJ1Y8nsSDWv2SWgHaBN&pid=Api&P=0&w=300&h=300" group-title="sport",Sky Sports Football [UK]
+plugin://script.module.horus?action=play&id=54de746f7823812312b4000422618465f7d58f87
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/e8/Sky-sports-main-event.jpg" group-title="sport",Sky Sports Main Event [UK]
+plugin://script.module.horus?action=play&id=78266c15035d0ad8cbc58f821733931e1de434ab
+#EXTINF:-1 tvg-logo="https://seeklogo.com/images/S/sky-sport-premier-league-logo-4300457122-seeklogo.com.png" group-title="sport",Sky Sports Premier League [UK]
+plugin://script.module.horus?action=play&id=e33fb63ba12cf45bcee7757c8520f561ad27a39f
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/TNT_Sports_%282023%29.svg/1024px-TNT_Sports_%282023%29.svg.png" group-title="sport",TNT Sports 1 HD [UK]
+plugin://script.module.horus?action=play&id=19c5c13a8e7273d78d53fdaea3deaf1b80e938fa
+#EXTINF:-1 tvg-logo="https://media.info/l/o/1/1540.1690027877.png" group-title="sport",TNT Sports 2 HD [UK]
+plugin://script.module.horus?action=play&id=01dcc1ea3387c2b73953efe3f52286a770737d7c
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/TNT_Sports_%282023%29.svg/1200px-TNT_Sports_%282023%29.svg.png" group-title="sport",TNT Sports 3 HD [UK]
+plugin://script.module.horus?action=play&id=d57ebd44296b0c92c0661cc964e737a54b852cec
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/8/83/TNT_Sports_%282023%29.svg" group-title="sport",TNT Sports 4 HD [UK]
+plugin://script.module.horus?action=play&id=2605c201c8c9cf6684ee1de562d3b4c7e17ac915
