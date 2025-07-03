@@ -1,7 +1,7 @@
 #EXTM3U
-#EXTINF:-1 tvg-logo="https://tse2.mm.bing.net/th?id=OIP.aGYAUHwBq_g1BudSXwVprAHaFj&pid=Api&P=0&w=300&h=300" group-title="sport",ESPN [US]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/ESPN.png" group-title="sport",ESPN [US]
 acestream://0dca83a7cc9184893ff96ee2355874342fc8fd45
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/ESPN.png" group-title="sport",ESPN2 [US]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/ESPN2.png" group-title="sport",ESPN2 [US]
 acestream://437692bc0dedcf1c27c2ab2c1c7e58b0806244fe
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Fox-Sports-1.png" group-title="sport",Fox Sports 1 [US]
 acestream://df23d9ca9275b354e23156d59b8bc1122441fa47
