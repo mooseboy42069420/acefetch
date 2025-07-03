@@ -23,8 +23,9 @@ jobs:
         with:
           enable-cache: true
 
-      - name: Instalar dependencias
+      - name: Install Dependencies
         run: |
+          uv venv
           uv pip install -r requirements.txt
 
       - name: Run the scraper
