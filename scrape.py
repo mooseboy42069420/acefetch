@@ -131,14 +131,10 @@ def create_playlists(playlist_name: str, list_of_channels: list[Channel]) -> Non
     output_directory.mkdir(exist_ok=True)
 
     uri_schemes = {
-        "local": "",
+        "local_infohash": "http://127.0.0.1:6878/ace/manifest.m3u8?infohash=",
+        "local_content_id": "http://127.0.0.1:6878/ace/manifest.m3u8?content_id=",
         "ace": "acestream://",
         "horus": "plugin://script.module.horus?action=play&id=",
-    }
-
-    local_prefixes = {
-        "infohash": "http://127.0.0.1:6878/ace/manifest.m3u8?infohash=",
-        "content_id": "http://127.0.0.1:6878/ace/manifest.m3u8?content_id=",
     }
 
     for uri_scheme, prefix in uri_schemes.items():
@@ -146,20 +142,13 @@ def create_playlists(playlist_name: str, list_of_channels: list[Channel]) -> Non
         with playlist_path.open("w", encoding="utf-8") as m3u_file:
             m3u_file.write("#EXTM3U\n")
             for channel in list_of_channels:
-                if channel.infohash and uri_scheme == "local":
-                    m3u_file.write(
-                        f'#EXTINF:-1 tvg-logo="{channel.tvg_logo}" group-title="{channel.category}", {channel.name}\n'
-                    )
-                    m3u_file.write(f"{local_prefixes['infohash']}{channel.infohash}\n")
-                elif channel.content_id:
-                    prefix = uri_schemes.get(uri_scheme, "")
-                    if uri_scheme == "local":
-                        prefix = local_prefixes["content_id"]
-
-                    m3u_file.write(
-                        f'#EXTINF:-1 tvg-logo="{channel.tvg_logo}" group-title="{channel.category}", {channel.name}\n'
-                    )
-                    m3u_file.write(f"{prefix}{channel.content_id}\n")
+                top_line = f'#EXTINF:-1 tvg-logo="{channel.tvg_logo}" group-title="{channel.category}", {channel.name}\n'
+                if channel.infohash != "" and uri_scheme == "local_infohash":
+                    m3u_file.write(top_line)
+                    m3u_file.write(f"{uri_schemes[uri_scheme]}{channel.infohash}\n")
+                elif channel.content_id != "" and uri_scheme != "local_infohash":
+                    m3u_file.write(top_line)
+                    m3u_file.write(f"{uri_schemes[uri_scheme]}{channel.content_id}\n")
 
 
 def extract_infohash_from_url(url: str) -> str:
