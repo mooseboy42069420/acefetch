@@ -29,7 +29,7 @@ jobs:
           uv pip install -r requirements.txt
 
       - name: Run the scraper
-        run: uv run python scrape.py --filter-file channel_filter_english.csv --playlist-name english --m3u-url https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/peticiones
+        run: uv run python scrape.py --filter-config channel_allow_filter_english.csv --playlist-name english --m3u-url https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/peticiones
 
       - name: Configure git
         run: |
