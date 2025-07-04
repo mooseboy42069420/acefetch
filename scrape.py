@@ -16,14 +16,28 @@ LOGOS_PATH = Path("channel_logos.xml")
 
 REMOVE_COUNTRY_CODE_REGEX = re.compile(r"\s*\[\w{2}\]\s*$")
 
+ACE_URL_PREFIXES_CONTENT_ID = [
+    "acestream://",
+    "http://127.0.0.1:6878/ace/getstream?id=",
+    "http://127.0.0.1:6878/ace/getstream?content_id=",
+    "http://127.0.0.1:6878/ace/manifest.m3u8?id=",
+    "http://127.0.0.1:6878/ace/manifest.m3u8?content_id=",  # Side note, this is the good one when using ace
+    "plugin://script.module.horus?action=play&id=",  # Horus Kodi plugin
+]
+ACE_URL_PREFIXES_INFOHASH = [
+    "http://127.0.0.1:6878/ace/getstream?infohash=",
+    "http://127.0.0.1:6878/ace/manifest.m3u8?infohash=",
+]
+
 
 @dataclass
 class Channel:
     """Object representing a channel."""
 
     name: str
-    infohash: str
     tvg_logo: str
+    infohash: str = ""
+    content_id: str = ""
     category: str = ""
 
 
@@ -95,7 +109,7 @@ def do_name_replace(name: str, replacements: dict[str, str]) -> str:
     if new_name != name:
         print(f"Replaced '{name}' with '{new_name}'")
 
-    return new_name
+    return new_name.strip()
 
 
 def get_filter_list(filename: Path) -> list[str]:
@@ -117,9 +131,14 @@ def create_playlists(playlist_name: str, list_of_channels: list[Channel]) -> Non
     output_directory.mkdir(exist_ok=True)
 
     uri_schemes = {
-        "local": "http://127.0.0.1:6878/ace/manifest.m3u8?infohash=",
-        # "ace": "acestream://",
-        # "horus": "plugin://script.module.horus?action=play&id=",
+        "local": "",
+        "ace": "acestream://",
+        "horus": "plugin://script.module.horus?action=play&id=",
+    }
+
+    local_prefixes = {
+        "infohash": "http://127.0.0.1:6878/ace/manifest.m3u8?infohash=",
+        "content_id": "http://127.0.0.1:6878/ace/manifest.m3u8?content_id=",
     }
 
     for uri_scheme, prefix in uri_schemes.items():
@@ -127,11 +146,104 @@ def create_playlists(playlist_name: str, list_of_channels: list[Channel]) -> Non
         with playlist_path.open("w", encoding="utf-8") as m3u_file:
             m3u_file.write("#EXTM3U\n")
             for channel in list_of_channels:
-                if channel.infohash:
+                if channel.infohash and uri_scheme == "local":
                     m3u_file.write(
-                        f'#EXTINF:-1 tvg-logo="{channel.tvg_logo}" group-title="{channel.category}",{channel.name}\n'
+                        f'#EXTINF:-1 tvg-logo="{channel.tvg_logo}" group-title="{channel.category}", {channel.name}\n'
                     )
-                    m3u_file.write(f"{prefix}{channel.infohash}\n")
+                    m3u_file.write(f"{local_prefixes['infohash']}{channel.infohash}\n")
+                elif channel.content_id:
+                    prefix = uri_schemes.get(uri_scheme, "")
+                    if uri_scheme == "local":
+                        prefix = local_prefixes["content_id"]
+
+                    m3u_file.write(
+                        f'#EXTINF:-1 tvg-logo="{channel.tvg_logo}" group-title="{channel.category}", {channel.name}\n'
+                    )
+                    m3u_file.write(f"{prefix}{channel.content_id}\n")
+
+
+def extract_infohash_from_url(url: str) -> str:
+    """Extract infohash from a URL."""
+    for prefix in ACE_URL_PREFIXES_INFOHASH:
+        if url.startswith(prefix):
+            return url[len(prefix) :].strip()
+    return ""
+
+
+def extract_content_id_from_url(url: str) -> str:
+    """Extract content ID from a URL."""
+    for prefix in ACE_URL_PREFIXES_CONTENT_ID:
+        if url.startswith(prefix):
+            return url[len(prefix) :].strip()
+    return ""
+
+
+def populate_list_from_m3u(url: str) -> list[Channel]:
+    """Populate a list of channels from an M3U file."""
+    response = requests.get(url, timeout=REQUESTS_TIMEOUT)
+    response.raise_for_status()
+    m3u_content = response.text
+
+    channels = []
+    lines = m3u_content.splitlines()
+    for i in range(len(lines)):
+        if lines[i].startswith("#EXTINF:"):
+            # Extract channel name and logo
+            extinf_parts = lines[i][len("#EXTINF:") :].split(",")
+            if len(extinf_parts) < 2:
+                continue  # Skip malformed lines
+            channel_info = extinf_parts[0].strip()
+            channel_name = extinf_parts[1].strip()
+
+            # Extract logo URL if available
+            logo_match = re.search(r'tvg-logo="([^"]+)"', channel_info)
+            logo_url = logo_match.group(1) if logo_match else ""
+
+            # Extract infohash from the next line
+            if i + 1 < len(lines):
+                url_line = lines[i + 1].strip()
+                infohash = extract_infohash_from_url(url_line)
+                content_id = extract_content_id_from_url(url_line)
+
+                channels.append(
+                    Channel(
+                        name=channel_name,
+                        tvg_logo=logo_url,
+                        infohash=infohash,
+                        content_id=content_id,
+                    )
+                )
+
+    return channels
+
+
+def populate_list_from_api() -> list[Channel]:
+    """Populate a list of channels from the AceStream API."""
+    response = requests.get(API_URL, timeout=REQUESTS_TIMEOUT)
+    response.raise_for_status()
+    data = response.json()
+    if not isinstance(data, list):
+        print("Unexpected data format received from API.")
+        raise ValueError("Data is not a list.")
+
+    channel_list: list[Channel] = []
+
+    for item in data:
+        name = item.get("name", "Unknown")
+
+        categories = item.get("categories", [])
+        category = "" if not categories else categories[0]
+
+        channel_list.append(
+            Channel(
+                name=name,
+                tvg_logo="",
+                category=category,
+                infohash=item.get("infohash", ""),
+            )
+        )
+
+    return channel_list
 
 
 def main() -> None:
@@ -155,63 +267,56 @@ def main() -> None:
         default="channel_name_replacements.csv",
         help="Path to CSV file for name replacements",
     )
+    parser.add_argument(
+        "--m3u-url",
+        type=str,
+        default="",
+        help="URL to the M3U file to scrape channels from.",
+    )
+    parser.add_argument(
+        "--api-url",
+        type=str,
+        default=API_URL,
+        help="URL to the AceStream API to scrape channels from.",
+    )
     args = parser.parse_args()
 
     logos = get_logos()
 
     name_replacements = get_name_replacements(Path(args.name_replacements))
 
-    try:
-        response = requests.get(API_URL, timeout=REQUESTS_TIMEOUT)
-        response.raise_for_status()
-        data = response.json()
+    filter_list = []
+    if args.filter_file:
+        filter_list = get_filter_list(Path(args.filter_file))
 
-        if isinstance(data, list):
-            # Create the M3U content
+    channel_list_scratch: list[Channel] = []
 
-            channel_list: list[Channel] = []
+    if args.m3u_url:
+        channel_list_scratch.extend(populate_list_from_m3u(args.m3u_url))
 
-            if args.filter_file == "":
-                name_filter = []
-            else:
-                name_filter = get_filter_list(Path(args.filter_file))
+    if args.api_url:
+        channel_list_scratch.extend(populate_list_from_api())
 
-            for item in data:
-                name = item.get("name", "Unknown")
-                name = do_name_replace(name, name_replacements)
+    channel_list = []
 
-                # If a filter is specified, check if the channel name matches
-                if name_filter and not any(code in name for code in name_filter):
-                    continue  # Skip this channel if it doesn't match the filter
+    for channel in channel_list_scratch:
+        # Replace channel names if replacements are provided
+        if name_replacements:
+            channel.name = do_name_replace(channel.name, name_replacements)
 
-                categories = item.get("categories", [])
-                category = "" if not categories else categories[0]
+        # Continue only if we passed the filter
+        if filter_list and not any(filter in channel.name for filter in filter_list):
+            continue
 
-                # Try to find a logo for this channel
-                logo_url = item.get("tvg_logo", "")
-                if not logo_url and logos:
-                    logo_url = find_best_match(name, logos)
+        channel.tvg_logo = find_best_match(channel.name, logos)
 
-                channel_list.append(
-                    Channel(
-                        name=name,
-                        tvg_logo=logo_url,
-                        category=category,
-                        infohash=item.get("infohash", ""),
-                    )
-                )
+        channel_list.append(channel)
 
-            # Sort the channels by name
-            channel_list.sort(key=lambda x: x.name.lower())
+    # Sort the channels by name
+    channel_list.sort(key=lambda x: x.name.lower())
 
-            # Create the M3U playlist
-            create_playlists(args.playlist_name, channel_list)
-
-        else:
-            print("Not a list?")
-
-    except Exception as e:
-        print(f"API Error: {e}")
+    # Create the M3U playlist
+    create_playlists(args.playlist_name, channel_list)
 
 
 if __name__ == "__main__":

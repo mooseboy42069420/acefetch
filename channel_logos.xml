@@ -1375,7 +1375,7 @@
             <logo_url> https://upload.wikimedia.org/wikipedia/en/thumb/d/d9/Sky_Sports_F1_logo_2020.svg/2560px-Sky_Sports_F1_logo_2020.svg.png</logo_url>
         </channel>
         <channel name="Sky Sport Football">
-            <logo_url> https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Sky_Sport_Football_-_Logo_2020.svg/2560px-Sky_Sport_Football_-_Logo_2020.svg.png</logo_url>
+            <logo_url> https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Football.png</logo_url>
         </channel>
         <channel name="Sky Sport MotoGP">
             <logo_url> https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Sky_Sport_MotoGP_-_Logo_2020.svg/2560px-Sky_Sport_MotoGP_-_Logo_2020.svg.png</logo_url>
