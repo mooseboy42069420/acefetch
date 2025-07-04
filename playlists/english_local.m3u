@@ -15,24 +15,24 @@ http://127.0.0.1:6878/ace/manifest.m3u8?content_id=75a56863b6fe0407ad4305b4d7ee5
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=13ddaf59c0f2d760fd3775acc254e13825206eac
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Premier-Sports-2.png" group-title="", Premier Sports 2 [IE]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=4903ca695edb64bc72ae29eb85a5333ba0139537
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Sky_Sport_Arena_-_Logo_2020.svg/2560px-Sky_Sport_Arena_-_Logo_2020.svg.png" group-title="", Sky Sport Arena [UK]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Arena.png" group-title="", Sky Sports Arena [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=d317a003e8047da2c36a2a2bb2289578c9a3b79c
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Cricket.png" group-title="", Sky Sport Cricket [UK]
-http://127.0.0.1:6878/ace/manifest.m3u8?content_id=6d95e4b0893e155cc674b84e0763150c445d3ddd
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Football.png" group-title="", Sky Sport Football [UK]
-http://127.0.0.1:6878/ace/manifest.m3u8?content_id=8dbe2d515e9131fa311353537736f8c94be9b26d
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Main-Event.png" group-title="", Sky Sport Main Event [UK]
-http://127.0.0.1:6878/ace/manifest.m3u8?content_id=eab7aeef0218ce8b0752e596e4792b69eda4df5e
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Premier-League.png" group-title="", Sky Sport Premier League [UK]
-http://127.0.0.1:6878/ace/manifest.m3u8?content_id=ec5eabe0144ccfffc337e1d6708e2afb81d0638e
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Arena.png" group-title="sport", Sky Sports Arena [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=37796ca47026bc190c7dc26827c0dfb6b61d137b
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Cricket.png" group-title="", Sky Sports Cricket [UK]
+http://127.0.0.1:6878/ace/manifest.m3u8?content_id=6d95e4b0893e155cc674b84e0763150c445d3ddd
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Cricket.png" group-title="sport", Sky Sports Cricket [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=610eefafd6602c094e8e89c249a11d635cb6fe29
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Football.png" group-title="", Sky Sports Football [UK]
+http://127.0.0.1:6878/ace/manifest.m3u8?content_id=8dbe2d515e9131fa311353537736f8c94be9b26d
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Football.png" group-title="sport", Sky Sports Football [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=54de746f7823812312b4000422618465f7d58f87
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Main-Event.png" group-title="", Sky Sports Main Event [UK]
+http://127.0.0.1:6878/ace/manifest.m3u8?content_id=eab7aeef0218ce8b0752e596e4792b69eda4df5e
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Main-Event.png" group-title="sport", Sky Sports Main Event [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=78266c15035d0ad8cbc58f821733931e1de434ab
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Premier-League.png" group-title="", Sky Sports Premier League [UK]
+http://127.0.0.1:6878/ace/manifest.m3u8?content_id=ec5eabe0144ccfffc337e1d6708e2afb81d0638e
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Premier-League.png" group-title="sport", Sky Sports Premier League [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=e33fb63ba12cf45bcee7757c8520f561ad27a39f
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tennis_Channel_logo.svg/1200px-Tennis_Channel_logo.svg.png" group-title="tv", Tennis Channel [UK]
