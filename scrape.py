@@ -91,6 +91,10 @@ def find_best_match(name, logos) -> str:
     # Remove any country code from the name, indicated by a two-letter suffix between square brackets
     name = FIND_COUNTRY_CODE_REGEX.sub("", name.strip())
 
+    for logo_name in logos.keys():
+        if name.lower() == logo_name.lower():
+            return logos[logo_name]
+
     # Use fuzzy matching to find the best match
     match = process.extractOne(
         name, logos.keys(), scorer=fuzz.token_sort_ratio, score_cutoff=80

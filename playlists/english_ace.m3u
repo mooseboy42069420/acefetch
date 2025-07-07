@@ -1,7 +1,7 @@
 #EXTM3U
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/ESPN2.png" tvg-id="ESPN.us" group-title="", ESPN 1 [US]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/ESPN.png" tvg-id="ESPN.us" group-title="", ESPN [US]
 acestream://4b4907de51ec11087d4bed5876f2a0c68264f442
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/ESPN2.png" tvg-id="ESPN2.us" group-title="", ESPN 2 [US]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/ESPN2.png" tvg-id="ESPN2.us" group-title="", ESPN2 [US]
 acestream://664eb5fe460b96941aed633959a845b185cd8394
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Fox-Sports-1.png" tvg-id="Fox.Sports.1.us" group-title="sport", Fox Sports 1 [US]
 acestream://c9c062941fbecb16ce29437f346ea7177d720898
