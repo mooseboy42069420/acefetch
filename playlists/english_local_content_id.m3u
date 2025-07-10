@@ -3,33 +3,33 @@
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=4b4907de51ec11087d4bed5876f2a0c68264f442
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/ESPN2.png" tvg-id="ESPN2.us" group-title="", ESPN2 [US]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=664eb5fe460b96941aed633959a845b185cd8394
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Fox-Sports-1.png" tvg-id="Fox.Sports.1.us" group-title="sport", Fox Sports 1 [US]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Fox-Sports-1.png" tvg-id="Fox.Sports.1.us" group-title="Sports", Fox Sports 1 [US]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=c9c062941fbecb16ce29437f346ea7177d720898
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Fox-Sports-2.png" tvg-id="Fox.Sports.2.us" group-title="sport", Fox Sports 2 [US]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Fox-Sports-2.png" tvg-id="Fox.Sports.2.us" group-title="Sports", Fox Sports 2 [US]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=cba8d369eac629b577750edb90370cd1c5fb03b7
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/NBA-TV.png" tvg-id="NBA.TV.USA.us" group-title="sport", NBA TV [US]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/NBA-TV.png" tvg-id="NBA.TV.USA.us" group-title="Sports", NBA TV [US]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=e72d03fb9694164317260f684470be9ab781ed95
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Premier-Sports-1.png" tvg-id="UK | Premier Sports 1" group-title="sport", Premier Sports 1 [IE]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Premier-Sports-1.png" tvg-id="UK | Premier Sports 1" group-title="Sports", Premier Sports 1 [IE]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=75a56863b6fe0407ad4305b4d7ee5643c3923565
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Premier-Sports-2.png" tvg-id="UK | Premier Sports 2" group-title="sport", Premier Sports 2 [IE]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Premier-Sports-2.png" tvg-id="UK | Premier Sports 2" group-title="Sports", Premier Sports 2 [IE]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=4903ca695edb64bc72ae29eb85a5333ba0139537
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Arena.png" tvg-id="UK | Sky Sport Arena" group-title="sport", Sky Sports Arena [UK]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Arena.png" tvg-id="UK | Sky Sport Arena" group-title="Sports", Sky Sports Arena [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=d317a003e8047da2c36a2a2bb2289578c9a3b79c
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Cricket.png" tvg-id="UK | Sky Sport Cricket" group-title="sport", Sky Sports Cricket [UK]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Cricket.png" tvg-id="UK | Sky Sport Cricket" group-title="Sports", Sky Sports Cricket [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=6d95e4b0893e155cc674b84e0763150c445d3ddd
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Football.png" tvg-id="UK | Sky Sport Football" group-title="sport", Sky Sports Football [UK]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Football.png" tvg-id="UK | Sky Sport Football" group-title="Sports", Sky Sports Football [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=8dbe2d515e9131fa311353537736f8c94be9b26d
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Main-Event.png" tvg-id="UK | Sky Sport Main Event" group-title="sport", Sky Sports Main Event [UK]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Main-Event.png" tvg-id="UK | Sky Sport Main Event" group-title="Sports", Sky Sports Main Event [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=eab7aeef0218ce8b0752e596e4792b69eda4df5e
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Premier-League.png" tvg-id="UK | Sky Sport Premier League" group-title="sport", Sky Sports Premier League [UK]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Premier-League.png" tvg-id="UK | Sky Sport Premier League" group-title="Sports", Sky Sports Premier League [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=ec5eabe0144ccfffc337e1d6708e2afb81d0638e
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tennis_Channel_logo.svg/1200px-Tennis_Channel_logo.svg.png" tvg-id="The.Tennis.Channel.us" group-title="sport", Tennis Channel [US]
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tennis_Channel_logo.svg/1200px-Tennis_Channel_logo.svg.png" tvg-id="The.Tennis.Channel.us" group-title="Sports", Tennis Channel [US]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=039fae21c9e7e5214d3d898cba80863e37e623ac
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/TNT-Sports-1-HD.png" tvg-id="UK | TNT Sports 1" group-title="sport", TNT Sports 1 HD [UK]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/TNT-Sports-1-HD.png" tvg-id="UK | TNT Sports 1" group-title="Sports", TNT Sports 1 HD [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=efc60cfe5e3a349baa02bcc49f6647c21a9c3c5b
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/TNT-Sports-2-HD.png" tvg-id="UK | TNT Sports 2" group-title="sport", TNT Sports 2 HD [UK]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/TNT-Sports-2-HD.png" tvg-id="UK | TNT Sports 2" group-title="Sports", TNT Sports 2 HD [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=d63d8a57cf471394bfa9f619bbd68b01ae27a801
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/TNT-Sports-3-HD.png" tvg-id="UK | TNT Sports 3" group-title="sport", TNT Sports 3 HD [UK]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/TNT-Sports-3-HD.png" tvg-id="UK | TNT Sports 3" group-title="Sports", TNT Sports 3 HD [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=5f966c123759de46dff29c379266b7a403452033
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/TNT-Sports-4-HD.png" tvg-id="UK | TNT Sports 4" group-title="sport", TNT Sports 4 HD [UK]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/TNT-Sports-4-HD.png" tvg-id="UK | TNT Sports 4" group-title="Sports", TNT Sports 4 HD [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?content_id=fc5089d8e1519872fdf951779ccbca913acc9bce
