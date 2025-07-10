@@ -387,7 +387,7 @@ def main() -> None:
             channel.tvg_id = get_tvg_id_from_title(channel.name)
 
         if is_sport_channel(channel.name):
-            channel.category = "sport"
+            channel.category = "Sports"
 
         channel_list.append(channel)
 
