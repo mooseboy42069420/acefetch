@@ -35,15 +35,23 @@ ACE_URL_PREFIXES_INFOHASH = [
     "http://127.0.0.1:6878/ace/manifest.m3u8?infohash=",
 ]
 
-SPORT_WORDS = [
+SPORT_WORDS = {
     "football",
     "soccer",
     "basketball",
     "nba",
-    "sports",
     "sport",
     "tennis",
-]
+    "espn",
+    "moto",
+    "formula 1",
+    "f1",
+    "hockey",
+    "cricket",
+    "rugby",
+    "golf",
+    "fórmula 1",
+}
 
 
 # region Classes
