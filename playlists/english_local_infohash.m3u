@@ -1,18 +1,12 @@
 #EXTM3U
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/ESPN.png" tvg-id="ESPN.us" group-title="Sports", ESPN [US]
-http://127.0.0.1:6878/ace/manifest.m3u8?infohash=0dca83a7cc9184893ff96ee2355874342fc8fd45
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/ESPN2.png" tvg-id="ESPN2.us" group-title="Sports", ESPN2 [US]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=437692bc0dedcf1c27c2ab2c1c7e58b0806244fe
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Fox-Sports-1.png" tvg-id="FOX Sports 1 HD.us" group-title="Sports", FOX Sports 1 HD [US]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=df23d9ca9275b354e23156d59b8bc1122441fa47
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Fox-Sports-2.png" tvg-id="FOX Sports 2 HD.us" group-title="Sports", FOX Sports 2 HD [US]
-http://127.0.0.1:6878/ace/manifest.m3u8?infohash=e765303108614af0f9a42da7b45a147195982796
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/NBA-TV.png" tvg-id="NBA TV.us" group-title="Sports", NBA TV [US]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=42832fbf9a1d3bdcca043e09951d6769fbbe04e7
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Premier-Sports-1.png" tvg-id="Premier Sports 1.ie" group-title="Sports", Premier Sports 1 [IE]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=13ddaf59c0f2d760fd3775acc254e13825206eac
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Arena.png" tvg-id="Sky Sports Arena.uk" group-title="Sports", Sky Sports Arena [UK]
-http://127.0.0.1:6878/ace/manifest.m3u8?infohash=37796ca47026bc190c7dc26827c0dfb6b61d137b
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Cricket.png" tvg-id="Sky Sports Cricket.uk" group-title="Sports", Sky Sports Cricket [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=610eefafd6602c094e8e89c249a11d635cb6fe29
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Football.png" tvg-id="Sky Sports Football.uk" group-title="Sports", Sky Sports Football [UK]
