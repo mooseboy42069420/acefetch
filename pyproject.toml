@@ -5,8 +5,9 @@ description = "Fetches Ace Streams and generates M3U playlists."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "fuzzywuzzy>=0.18.0",
+    "python-levenshtein>=0.27.1",
     "requests>=2.32.4",
-    "thefuzz>=0.22.1",
 ]
 
 [dependency-groups]
@@ -16,10 +17,6 @@ lint = ["ruff"]
 
 [tool.uv]
 default-groups = ["type", "lint"]
-
-[tool.uv.sources]
-# https://github.com/seatgeek/thefuzz/issues/72 https://github.com/seatgeek/thefuzz/pull/88
-thefuzz = { url = "https://files.pythonhosted.org/packages/81/4b/d3eb25831590d6d7d38c2f2e3561d3ba41d490dc89cd91d9e65e7c812508/thefuzz-0.22.1.tar.gz" }
 
 [tool.ruff]
 cache-dir = "~/.cache/ruff"

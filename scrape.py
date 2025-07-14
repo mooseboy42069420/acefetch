@@ -10,10 +10,7 @@ from typing import TYPE_CHECKING
 from xml.etree import ElementTree as ET
 
 import requests
-from thefuzz import fuzz, process
-
-if TYPE_CHECKING:
-    from collections.abc import Callable, Sequence
+from fuzzywuzzy import fuzz, process
 
 REQUESTS_TIMEOUT = 10
 API_URL = "https://api.acestream.me/all?api_version=1&api_key=test_api_key"
@@ -96,6 +93,8 @@ class PreviousChannelProcessor:
             file_path = Path("playlists") / f"{playlist_name}_{uri_scheme}.m3u"
             self.load_from_file(file_path)
 
+        print(f"Loaded {len(self.previous_channels)} previous channels from files.")
+
     def load_from_file(self, file_path: Path) -> None:
         """Load previously processed channels from a file."""
         if not file_path.exists():
@@ -139,12 +138,21 @@ class PreviousChannelProcessor:
         missing_channels: list[Channel] = []
 
         for previous_channel in self.previous_channels:
-            found_infohash = any(
-                previous_channel.infohash == current_channel.infohash for current_channel in current_channels
-            )
             found_content_id = any(
-                previous_channel.content_id == current_channel.content_id for current_channel in current_channels
+                previous_channel.content_id == current_channel.content_id
+                for current_channel in current_channels
+                if current_channel.content_id
             )
+            found_infohash = any(
+                previous_channel.infohash == current_channel.infohash
+                for current_channel in current_channels
+                if current_channel.infohash
+            )
+            if "BEP" in previous_channel.name:
+                print(
+                    f"Checking previous channel: {previous_channel.name}, infohash: {previous_channel.infohash}, content_id: {previous_channel.content_id}"
+                )
+                print(found_content_id, found_infohash)
             if not found_infohash and not found_content_id:
                 # If the channel is not found in the current list, add it to missing channels
                 msg = f"Channel '{previous_channel.name}' is missing in the current list."
@@ -193,7 +201,7 @@ def get_logos() -> dict[str, str]:
 
 
 # region Names
-def find_best_match(name: str, logos: dict[str, str]) -> str:
+def find_best_logo_match(name: str, logos: dict[str, str]) -> str:
     """Find the best matching logo for a given channel name."""
     # Remove any country code from the name, indicated by a two-letter suffix between square brackets
     name = FIND_COUNTRY_CODE_REGEX.sub("", name.strip())
@@ -203,16 +211,13 @@ def find_best_match(name: str, logos: dict[str, str]) -> str:
             return url
 
     # Use fuzzy matching to find the best match
-    matches = process.extractWithoutOrder(
-        name,
-        logos.keys(),
-        scorer=fuzz.token_sort_ratio,
-        score_cutoff=80,
-    )
+    match = process.extractOne(name, logos.keys(), scorer=fuzz.token_sort_ratio, score_cutoff=80)
 
-    for match in matches:
-        print(match)
-
+    if not match:
+        match = process.extractOne(name, logos.keys(), scorer=fuzz.partial_ratio, score_cutoff=75)
+    if match:
+        print(f"Found fuzzy match for '{name}': {match[0]} with score {match[1]}")
+        return logos[match[0]]  # This is the URL
     return ""
 
 
@@ -435,6 +440,29 @@ def print_heading(heading: str) -> None:
     print(f"\n{'=' * 10} {heading} {'=' * 10}")
 
 
+def deduplicate_channels(channel_list: list[Channel]) -> list[Channel]:
+    """Remove duplicate channels based on infohash or content_id."""
+    seen_infohashes = set()
+    seen_content_ids = set()
+
+    found_channels: list[Channel] = []
+
+    for channel in channel_list:
+        if channel.infohash and channel.infohash in seen_infohashes:
+            continue
+        if channel.content_id and channel.content_id in seen_content_ids:
+            continue
+
+        if channel.infohash:
+            seen_infohashes.add(channel.infohash)
+        if channel.content_id:
+            seen_content_ids.add(channel.content_id)
+
+        found_channels.append(channel)
+
+    return found_channels
+
+
 # region Main
 def main() -> None:
     """Scrape."""
@@ -509,7 +537,7 @@ def main() -> None:
         if filter_list and not any(filter_str in channel.name for filter_str in filter_list):
             continue
 
-        channel.tvg_logo = find_best_match(channel.name, logos)
+        channel.tvg_logo = find_best_logo_match(channel.name, logos)
 
         if not channel.tvg_id:
             channel.tvg_id = get_tvg_id_from_title(channel.name)
@@ -520,12 +548,14 @@ def main() -> None:
         channel_list.append(channel)
 
     # Grab old channels that were not found in the current scrape
+    print_heading("Checking for Old Channels")
     old_channels = PreviousChannelProcessor(args.playlist_name).get_recent_missing_channels(channel_list)
     channel_list.extend(old_channels)
 
     print_heading("Post-Processing Channels")
+    channel_list = deduplicate_channels(channel_list)
     channel_list.sort(key=lambda x: x.name.lower())
-    print("Sorted channels by name.")
+    print("Deduplicated, sorted channels by name.")
 
     # Create the M3U playlist
 
