@@ -210,10 +210,9 @@ def find_best_match(name: str, logos: dict[str, str]) -> str:
         score_cutoff=80,
     )
 
-    match = next(iter(matches), None)
+    for match in matches:
+        print(match)
 
-    if match:
-        return logos[match[0]]
     return ""
 
 
