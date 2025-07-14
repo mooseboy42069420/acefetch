@@ -6,11 +6,13 @@ import re
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from typing import TYPE_CHECKING
 from xml.etree import ElementTree as ET
 
 import requests
-from fuzzywuzzy import fuzz, process
+from fuzzywuzzy import (  # type: ignore[import-untyped] # This has been replaced by thefuzz, but I can't get it working as nice
+    fuzz,
+    process,
+)
 
 REQUESTS_TIMEOUT = 10
 API_URL = "https://api.acestream.me/all?api_version=1&api_key=test_api_key"
@@ -148,11 +150,6 @@ class PreviousChannelProcessor:
                 for current_channel in current_channels
                 if current_channel.infohash
             )
-            if "BEP" in previous_channel.name:
-                print(
-                    f"Checking previous channel: {previous_channel.name}, infohash: {previous_channel.infohash}, content_id: {previous_channel.content_id}"
-                )
-                print(found_content_id, found_infohash)
             if not found_infohash and not found_content_id:
                 # If the channel is not found in the current list, add it to missing channels
                 msg = f"Channel '{previous_channel.name}' is missing in the current list."
