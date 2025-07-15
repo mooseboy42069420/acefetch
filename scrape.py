@@ -25,7 +25,7 @@ TVG_ID_COUNTRY_CODE_REGEX_2 = re.compile(r"^(\w{2})[ :]")  # Matches "UK " or "U
 
 TVG_LOGO_REGEX = re.compile(r'tvg-logo="([^"]+)"')
 TVG_ID_REGEX = re.compile(r'tvg-id="([^"]+)"')
-LAST_FOUND_REGEX = re.compile(r'x-last-found="(\d+)"')
+LAST_FOUND_REGEX = re.compile(r'x-last-found="(\d+)"') # Kinda wrong, but x-first-not-found is a bit too long
 
 ACE_URL_PREFIXES_CONTENT_ID = [
     "acestream://",
@@ -77,7 +77,7 @@ class Channel:
 
     name: str
     tvg_logo: str
-    last_not_found: int # This is 0 if it was found last time, otherwise the git diff will be huge every run
+    first_not_found: int # This is 0 if it was found last time, otherwise the git diff will be huge every run
     tvg_id: str = ""
     infohash: str = ""
     content_id: str = ""
@@ -120,7 +120,7 @@ class PreviousChannelProcessor:
                     tvg_logo = TVG_LOGO_REGEX.search(line_one)
                     tvg_id = TVG_ID_REGEX.search(line_one)
 
-                    last_found = LAST_FOUND_REGEX.search(line_one)
+                    first_not_found = LAST_FOUND_REGEX.search(line_one)
 
                     self.previous_channels.append(
                         Channel(
@@ -129,7 +129,7 @@ class PreviousChannelProcessor:
                             tvg_id=tvg_id.group(1) if tvg_id else "",
                             infohash=infohash,
                             content_id=content_id,
-                            last_not_found=int(last_found.group(1)) if last_found else 0,
+                            first_not_found=int(first_not_found.group(1)) if first_not_found else 0,
                         )
                     )
                     line_one = ""
@@ -153,14 +153,15 @@ class PreviousChannelProcessor:
             if not found_infohash and not found_content_id:
                 # If the channel is not found in the current list, add it to missing channels
                 msg = f"Channel '{previous_channel.name}' is missing in the current list."
-                last_added = datetime.fromtimestamp(previous_channel.last_not_found, tz=UTC)
+                last_added = datetime.fromtimestamp(previous_channel.first_not_found, tz=UTC)
                 # If it's 0 then it was found last time
-                if previous_channel.last_not_found != 0 and CURRENT_TIME - last_added > STALE_CHANNEL_TIME_THRESHOLD:
+                if previous_channel.first_not_found != 0 and CURRENT_TIME - last_added > STALE_CHANNEL_TIME_THRESHOLD:
                     msg += " It has been missing for a while, not adding it."
                     skipped_old_channels += 1
                 else:
                     msg += " Adding it to the missing channels list, it's not too old."
-                    previous_channel.last_not_found = int(CURRENT_TIME.timestamp())
+                    if previous_channel.first_not_found == 0:
+                        previous_channel.first_not_found = int(CURRENT_TIME.timestamp())
                     missing_channels.append(previous_channel)
 
                 print(msg)
@@ -320,7 +321,7 @@ def create_playlists(playlist_name: str, list_of_channels: list[Channel]) -> Non
         with playlist_path.open("w", encoding="utf-8") as m3u_file:
             m3u_file.write("#EXTM3U\n")
             for channel in list_of_channels:
-                top_line = f'#EXTINF:-1 tvg-logo="{channel.tvg_logo}" tvg-id="{channel.tvg_id}" group-title="{channel.category}" x-last-found="{channel.last_not_found}", {channel.name}\n'  # noqa: E501 This line can be long
+                top_line = f'#EXTINF:-1 tvg-logo="{channel.tvg_logo}" tvg-id="{channel.tvg_id}" group-title="{channel.category}" x-last-found="{channel.first_not_found}", {channel.name}\n'  # noqa: E501 This line can be long
                 if channel.infohash != "" and uri_scheme == "local_infohash":
                     m3u_file.write(top_line)
                     m3u_file.write(f"{prefix}{channel.infohash}\n")
@@ -389,7 +390,7 @@ def populate_list_from_m3u(url: str) -> list[Channel]:
                         tvg_id=tvg_id,
                         infohash=infohash,
                         content_id=content_id,
-                        last_not_found=0,
+                        first_not_found=0,
                     )
                 )
 
@@ -422,7 +423,7 @@ def populate_list_from_api(api_url: str) -> list[Channel]:
                 tvg_logo="",
                 category=category,
                 infohash=item.get("infohash", ""),
-                last_not_found=0,
+                first_not_found=0,
             )
         )
 
