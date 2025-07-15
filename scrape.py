@@ -77,7 +77,7 @@ class Channel:
 
     name: str
     tvg_logo: str
-    last_not_found: int
+    last_not_found: int # This is 0 if it was found last time, otherwise the git diff will be huge every run
     tvg_id: str = ""
     infohash: str = ""
     content_id: str = ""
@@ -154,7 +154,8 @@ class PreviousChannelProcessor:
                 # If the channel is not found in the current list, add it to missing channels
                 msg = f"Channel '{previous_channel.name}' is missing in the current list."
                 last_added = datetime.fromtimestamp(previous_channel.last_not_found, tz=UTC)
-                if CURRENT_TIME - last_added > STALE_CHANNEL_TIME_THRESHOLD:
+                # If it's 0 then it was found last time
+                if previous_channel.last_not_found != 0 and CURRENT_TIME - last_added > STALE_CHANNEL_TIME_THRESHOLD:
                     msg += " It has been missing for a while, not adding it."
                     skipped_old_channels += 1
                 else:
