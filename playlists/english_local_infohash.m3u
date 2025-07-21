@@ -11,6 +11,8 @@ http://127.0.0.1:6878/ace/manifest.m3u8?infohash=e765303108614af0f9a42da7b45a147
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=42832fbf9a1d3bdcca043e09951d6769fbbe04e7
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Premier-Sports-1.png" tvg-id="Premier Sports 1.ie" group-title="Sports" x-last-found="0", Premier Sports 1 [IE]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=13ddaf59c0f2d760fd3775acc254e13825206eac
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Premier-Sports-2.png" tvg-id="Premier Sports 2.ie" group-title="Sports" x-last-found="0", Premier Sports 2 [IE]
+http://127.0.0.1:6878/ace/manifest.m3u8?infohash=086e4c7ccc0b80e2960a553d04dac1024c7787b9
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Arena.png" tvg-id="Sky Sports Arena.uk" group-title="Sports" x-last-found="0", Sky Sports Arena [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=37796ca47026bc190c7dc26827c0dfb6b61d137b
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Sky-Sports-Cricket.png" tvg-id="Sky Sports Cricket.uk" group-title="Sports" x-last-found="0", Sky Sports Cricket [UK]
