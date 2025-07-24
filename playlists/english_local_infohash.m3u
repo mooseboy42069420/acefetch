@@ -1,11 +1,11 @@
 #EXTM3U
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/ESPN.png" tvg-id="ESPN.us" group-title="Sports" x-last-found="0", ESPN [US]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/ESPN.png" tvg-id="ESPN.us" group-title="" x-last-found="1753333420", ESPN [US]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=0dca83a7cc9184893ff96ee2355874342fc8fd45
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/ESPN2.png" tvg-id="ESPN2.us" group-title="Sports" x-last-found="0", ESPN2 [US]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=437692bc0dedcf1c27c2ab2c1c7e58b0806244fe
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Fox-Sports-1.png" tvg-id="FOX Sports 1 HD.us" group-title="Sports" x-last-found="0", FOX Sports 1 HD [US]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=df23d9ca9275b354e23156d59b8bc1122441fa47
-#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Fox-Sports-2.png" tvg-id="FOX Sports 2 HD.us" group-title="Sports" x-last-found="0", FOX Sports 2 HD [US]
+#EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/Fox-Sports-2.png" tvg-id="FOX Sports 2 HD.us" group-title="" x-last-found="1753333420", FOX Sports 2 HD [US]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=e765303108614af0f9a42da7b45a147195982796
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/NBA-TV.png" tvg-id="NBA TV.us" group-title="Sports" x-last-found="0", NBA TV [US]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=42832fbf9a1d3bdcca043e09951d6769fbbe04e7
