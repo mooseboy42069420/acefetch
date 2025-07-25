@@ -25,7 +25,7 @@ TVG_ID_COUNTRY_CODE_REGEX_2 = re.compile(r"^(\w{2})[ :]")  # Matches "UK " or "U
 
 TVG_LOGO_REGEX = re.compile(r'tvg-logo="([^"]+)"')
 TVG_ID_REGEX = re.compile(r'tvg-id="([^"]+)"')
-LAST_FOUND_REGEX = re.compile(r'x-last-found="(\d+)"') # Kinda wrong, but x-first-not-found is a bit too long
+LAST_FOUND_REGEX = re.compile(r'x-last-found="(\d+)"')  # Kinda wrong, but x-first-not-found is a bit too long
 
 ACE_URL_PREFIXES_CONTENT_ID = [
     "acestream://",
@@ -77,7 +77,7 @@ class Channel:
 
     name: str
     tvg_logo: str
-    first_not_found: int # This is 0 if it was found last time, otherwise the git diff will be huge every run
+    first_not_found: int  # This is 0 if it was found last time, otherwise the git diff will be huge every run
     tvg_id: str = ""
     infohash: str = ""
     content_id: str = ""
@@ -117,6 +117,7 @@ class PreviousChannelProcessor:
                 if not line.startswith("#EXTINF:") and line_one:
                     content_id = extract_content_id_from_url(line)
                     infohash = extract_infohash_from_url(line)
+                    category = "Sports" if is_sport_channel(line_one) else ""
                     tvg_logo = TVG_LOGO_REGEX.search(line_one)
                     tvg_id = TVG_ID_REGEX.search(line_one)
 
@@ -128,6 +129,7 @@ class PreviousChannelProcessor:
                             tvg_logo=tvg_logo.group(1) if tvg_logo else "",
                             tvg_id=tvg_id.group(1) if tvg_id else "",
                             infohash=infohash,
+                            category=category,
                             content_id=content_id,
                             first_not_found=int(first_not_found.group(1)) if first_not_found else 0,
                         )
