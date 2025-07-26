@@ -25,7 +25,7 @@ http://127.0.0.1:6878/ace/manifest.m3u8?infohash=78266c15035d0ad8cbc58f821733931
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=e33fb63ba12cf45bcee7757c8520f561ad27a39f
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tennis_Channel_logo.svg/1200px-Tennis_Channel_logo.svg.png" tvg-id="Tennis Channel.uk" group-title="Sports" x-last-found="0", Tennis Channel [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=8941762ddb41ff774d02431b7973f759d7c74157
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tennis_Channel_logo.svg/1200px-Tennis_Channel_logo.svg.png" tvg-id="Tennis Channel.us" group-title="Sports" x-last-found="1753447694", Tennis Channel [US]
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tennis_Channel_logo.svg/1200px-Tennis_Channel_logo.svg.png" tvg-id="Tennis Channel.us" group-title="Sports" x-last-found="0", Tennis Channel [US]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=1b348443efc7f0cf4cdf349ac35bbe5d41be6220
 #EXTINF:-1 tvg-logo="https://media.githubusercontent.com/media/mooseboy42069420/acefetch/refs/heads/main/logos/TNT-Sports-1-HD.png" tvg-id="TNT Sports 1 HD.uk" group-title="Sports" x-last-found="0", TNT Sports 1 HD [UK]
 http://127.0.0.1:6878/ace/manifest.m3u8?infohash=19c5c13a8e7273d78d53fdaea3deaf1b80e938fa
